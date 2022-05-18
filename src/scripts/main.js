@@ -4,6 +4,12 @@ import axios from 'axios';
 import 'bootstrap'; // import bootstrap elements and js
 import '../styles/main.scss';
 
+// UTILITY FUNCTION
+const renderToDom = (divId, textToRender) => {
+  const selectedDiv = document.querySelector(divId);
+  selectedDiv.innerHTML = textToRender;
+};
+
 // API call
 const getLyrics = () => new Promise((resolve, reject) => {
   axios.get('https://api.lyrics.ovh/v1/twenty one pilots/redecorate')
@@ -15,7 +21,7 @@ const getLyrics = () => new Promise((resolve, reject) => {
 const lyricsOnDom = () => {
   // Below is a promise, so I have to use .then with the promise
   getLyrics().then((response) => {
-    document.querySelector('#app').innerHTML = response.lyrics;
+    renderToDom('#app', response.lyrics);
   });
 };
 
