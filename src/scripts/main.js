@@ -19,32 +19,45 @@ const getLyrics = (artist, song) => new Promise((resolve, reject) => {
 
 // UI Presentation (HTML on the DOM)
 const htmlStructure = () => {
-  const domString = `<div id="btn"></div>
+  const domString = `<div id="songSearchForm"></div>
   <div id="lyrics-container"></div>`;
   renderToDom('#app', domString);
 };
 
-const btn = () => {
-  const domString = '<button type="button" id="song-search-btn" class="btn btn-info">Search for Song</button.';
-  renderToDom('#btn', domString);
+const songSearchForm = () => {
+  const domString = `<form>
+  <div class="row">
+  <div class="col">
+    <label for="formGroupExampleInput" class="form-label">Artist or Band</label>
+    <input type="text" class="form-control" placeholder="twenty one pilots" aria-label="twenty one pilots">
+  </div>
+  <div class="col">
+    <label for="formGroupExampleInput" class="form-label">Song</label>
+    <input type="text" class="form-control" placeholder="Redecorate" aria-label="Redecorate">
+  </div>
+  </div>
+   <button type="submit" id="song-search-btn" class="btn btn-info">Search for Song</button>
+  </form>`;
+  renderToDom('#songSearchForm', domString);
 };
 
 const lyricsOnDom = (artist, song) => {
   // Below is a promise, so I have to use .then with the promise
   getLyrics(artist, song).then((response) => {
-    console.warn(response.lyrics);
+    // console.warn(response.lyrics);
+    renderToDom('#lyrics-container', response.lyrics);
   });
 };
 
 const eventListener = () => {
-  document.querySelector('#song-search-btn').addEventListener('click', () => {
-    console.warn(lyricsOnDom('twenty one pilots', 'redecorate'));
+  document.querySelector('#song-search-btn').addEventListener('click', (e) => {
+    e.preventDefault();
   });
 };
 
 const startApp = () => {
   htmlStructure();
-  btn();
+  songSearchForm();
   lyricsOnDom();
   eventListener();
 };
