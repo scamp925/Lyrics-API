@@ -11,8 +11,8 @@ const renderToDom = (divId, textToRender) => {
 };
 
 // API call
-const getLyrics = () => new Promise((resolve, reject) => {
-  axios.get('https://api.lyrics.ovh/v1/twenty one pilots/redecorate')
+const getLyrics = (artist, song) => new Promise((resolve, reject) => {
+  axios.get(`https://api.lyrics.ovh/v1/${artist}/${song}`)
     .then((response) => resolve(response.data))
     .catch((error) => reject(error));
 });
@@ -25,14 +25,20 @@ const htmlStructure = () => {
 };
 
 const btn = () => {
-  const domString = '<button type="button" class="btn btn-info">Search for Song</button.';
+  const domString = '<button type="button" id="song-search-btn" class="btn btn-info">Search for Song</button.';
   renderToDom('#btn', domString);
 };
 
-const lyricsOnDom = () => {
+const lyricsOnDom = (artist, song) => {
   // Below is a promise, so I have to use .then with the promise
-  getLyrics().then((response) => {
-    renderToDom('#lyrics-container', response.lyrics);
+  getLyrics(artist, song).then((response) => {
+    console.warn(response.lyrics);
+  });
+};
+
+const eventListener = () => {
+  document.querySelector('#song-search-btn').addEventListener('click', () => {
+    console.warn(lyricsOnDom('twenty one pilots', 'redecorate'));
   });
 };
 
@@ -40,6 +46,7 @@ const startApp = () => {
   htmlStructure();
   btn();
   lyricsOnDom();
+  eventListener();
 };
 
 startApp();
