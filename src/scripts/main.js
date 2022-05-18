@@ -18,14 +18,27 @@ const getLyrics = () => new Promise((resolve, reject) => {
 });
 
 // UI Presentation (HTML on the DOM)
+const htmlStructure = () => {
+  const domString = `<div id="btn"></div>
+  <div id="lyrics-container"></div>`;
+  renderToDom('#app', domString);
+};
+
+const btn = () => {
+  const domString = '<button type="button" class="btn btn-info">Search for Song</button.';
+  renderToDom('#btn', domString);
+};
+
 const lyricsOnDom = () => {
   // Below is a promise, so I have to use .then with the promise
   getLyrics().then((response) => {
-    renderToDom('#app', response.lyrics);
+    renderToDom('#lyrics-container', response.lyrics);
   });
 };
 
 const startApp = () => {
+  htmlStructure();
+  btn();
   lyricsOnDom();
 };
 
