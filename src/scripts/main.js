@@ -19,8 +19,8 @@ const getLyrics = (artist, song) => new Promise((resolve, reject) => {
 
 // UI Presentation (HTML on the DOM)
 const htmlStructure = () => {
-  const domString = `<div id="songSearchForm"></div>
-  <div id="lyrics-container"></div>`;
+  const domString = `<div id="songSearchForm" class="floating"></div>
+  <div id="lyrics-container" class="floating"></div>`;
   renderToDom('#app', domString);
 };
 

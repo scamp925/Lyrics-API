@@ -3,8 +3,14 @@
 
 
 body {
-  background-color: antiquewhite;
-  color: brown;
-  text-align: center;
+  background-image: url('image.png');
+  // background-image: url('https://i.etsystatic.com/26202452/r/il/64798c/2764827348/il_794xN.2764827348_f304.jpg');
+  background-repeat: no-repeat;
+  color: black;
+  // text-align: center;
   margin-top: 100px;
+}
+
+.floating {
+  background-color: gray;
 }
