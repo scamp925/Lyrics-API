@@ -28,12 +28,12 @@ const songSearchForm = () => {
   const domString = `<form>
   <div class="row">
   <div class="col">
-    <label for="formGroupExampleInput" class="form-label">Artist or Band</label>
-    <input type="text" class="form-control" placeholder="twenty one pilots" aria-label="twenty one pilots">
+    <label for="artist" class="form-label">Artist or Band</label>
+    <input type="text" id="artist" class="form-control" placeholder="twenty one pilots" aria-label="twenty one pilots" required>
   </div>
   <div class="col">
-    <label for="formGroupExampleInput" class="form-label">Song</label>
-    <input type="text" class="form-control" placeholder="Redecorate" aria-label="Redecorate">
+    <label for="song" class="form-label">Song</label>
+    <input type="text" id="song" class="form-control" placeholder="Redecorate" aria-label="Redecorate" required>
   </div>
   </div>
    <button type="submit" id="song-search-btn" class="btn btn-info">Search for Song</button>
@@ -50,15 +50,19 @@ const lyricsOnDom = (artist, song) => {
 };
 
 const eventListener = () => {
-  document.querySelector('#song-search-btn').addEventListener('click', (e) => {
+  const form = document.querySelector('form');
+  form.addEventListener('submit', (e) => {
     e.preventDefault();
+    const artist = document.querySelector('#artist').value;
+    const song = document.querySelector('#song').value;
+    lyricsOnDom(artist, song);
+    form.reset();
   });
 };
 
 const startApp = () => {
   htmlStructure();
   songSearchForm();
-  lyricsOnDom();
   eventListener();
 };
 
