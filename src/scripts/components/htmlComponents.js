@@ -13,7 +13,7 @@ const htmlStructure = () => {
   renderToDom('#app', domString);
 };
 
-const loader = () => {
+const spinner = () => {
   const domString = `<div class="spinner-border" role="status">
   <span class="visually-hidden">Loading...</span>
 </div>`;
@@ -39,4 +39,4 @@ const songSearchForm = () => {
   renderToDom('#songSearchForm', domString);
 };
 
-export { htmlStructure, loader, songSearchForm };
+export { htmlStructure, spinner, songSearchForm };
