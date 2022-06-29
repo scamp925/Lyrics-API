@@ -8,8 +8,18 @@ const htmlStructure = () => {
   <h5>Well, search the lyrics of your favorite song and sing to your heart's content</h5>
   </div>
   <div id="songSearchForm"></div>
+  <div id="loader"></div>
   <div id="lyrics-container" class="lyrics"></div>`;
   renderToDom('#app', domString);
+};
+
+const spinner = () => {
+  const domString = `<div id="spinner" class="d-flex justify-content-center">
+  <div class="spinner-border" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>`;
+  renderToDom('#lyrics-container', domString);
 };
 
 const songSearchForm = () => {
@@ -31,4 +41,4 @@ const songSearchForm = () => {
   renderToDom('#songSearchForm', domString);
 };
 
-export { htmlStructure, songSearchForm };
+export { htmlStructure, spinner, songSearchForm };
