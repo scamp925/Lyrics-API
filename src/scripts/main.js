@@ -1,7 +1,6 @@
 // USE WITH FIREBASE AUTH
 // import checkLoginStatus from './helpers/auth';
 import { htmlStructure, songSearchForm } from './components/htmlComponents';
-import lyricsOnDom from './lyricsOnDom';
 import eventListener from './events';
 import 'bootstrap'; // import bootstrap elements and js
 import '../styles/main.scss';
@@ -9,7 +8,6 @@ import '../styles/main.scss';
 const startApp = () => {
   htmlStructure();
   songSearchForm();
-  lyricsOnDom();
   eventListener();
 };
 

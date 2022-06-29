@@ -14,10 +14,12 @@ const htmlStructure = () => {
 };
 
 const spinner = () => {
-  const domString = `<div class="spinner-border" role="status">
-  <span class="visually-hidden">Loading...</span>
+  const domString = `<div id="spinner" class="d-flex justify-content-center">
+  <div class="spinner-border" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
 </div>`;
-  renderToDom('#loader', domString);
+  renderToDom('#lyrics-container', domString);
 };
 
 const songSearchForm = () => {
