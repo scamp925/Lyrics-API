@@ -10,7 +10,7 @@ const lyricsOnDom = (artist, song) => {
   })
     .catch((error) => {
       if (error.error === undefined) {
-        const domString = 'Sorry, these lyrics aren&#39t in the API database. Please try another search';
+        const domString = '<h2 style="color: red;">Sorry, lyrics not found. Please try another search</h2>';
         renderToDom('#lyrics-container', domString);
       }
     });
