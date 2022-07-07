@@ -3,9 +3,10 @@ import renderToDom from '../helpers/renderToDom';
 
 const htmlStructure = () => {
   const domString = `<div class="intro-text">
-  <h1>How does that song go?</h1>
-  <h4>Mumbling those few lines of a song while in the car?</h4>
-  <h5>Well, search the lyrics of your favorite song and sing to your heart's content</h5>
+  <h1>The Lyrics Finder You've Been Waiting For!</h1>
+  <h4>Got a song stuck in your head, but can't remember all the lyrics?</h4>
+  <h5>Well, search the artist or band and the name of the song, find the lyrics and sing until your lungs give out!</h5>
+  <p>Warning: Singing until your lungs give out is not safe. Please sing responsibly ;)</p>
   </div>
   <div id="songSearchForm"></div>
   <div id="loader"></div>
