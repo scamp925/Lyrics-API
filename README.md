@@ -1,107 +1,24 @@
-# Webpack Intro
+# The Lyrics Finder You Have Been Looking For!
 
-[See Live Demo of this Template](https://webpack-5-template.netlify.app)
+Intended Audience: Music lovers everywhere especially those who need to find the lyrics to their favorite song! It can be frustrating to have a song stuck in your head and only remember a few lines of the song! We have all been there! Now there's an app that finds the lyrics for you. All you need is the artist/band name and the song title. Returned to you will be the nicely formatted lyrics awaiting for you to sing along. If your song is unfortunately not in the database or if either the artist/band or song is misspelled, you will see a message asking you to try another search. So, have some fun and try it out!
 
-Webpack is a task runner and a module bundler. It originally started as a module bundler. This means that it takes all of your separate Javascript modules and bundles them together into a single file. Webpack also automates some of the tasks that we have to run every time we change the code. It will automate these tasks so that we are not typing in the same commands every single time.
+Check out my app: [Sariah Campopiano's Lyrics Finder](https://sariah-campopiano-lyrics-finder.netlify.app)
 
-## Topics
-- [Get Started](#get-started)
-- [Starting the Project](#starting-the-project)
-- [Other important tidbits](#other-important-tidbits)
-    - [Console messages](#console-messages)
-    - [Including images with webpack](#including-images-with-webpack)
-    - [Importing CSS](#importing-cssscss)
-    - [Using axios](#using-axios)
-    - [Deploying on Netlify](#deploying-on-netlify)
-___
+For anyone wanting to clone my code from GitHub to their local machine, feel free to do so! Here's what you will need to do:
+- Get your local machine ready for cloning code
+- On my Lyrics-API repository, click the dropdown option called "Code"
+- You are going to want the "SSH" option, so be sure you are on that
+- Copy the .git and paste it into your local terminal
+- Once on your coding editor, like Visual Studio Code, you will run npm install in your command line
+- Once install is complete, run npm start to start the application
 
-## Get Started
+### What I Learned
+This was my first project ever to have an external database that I needed to create API calls for to retrieve data for users. It was a learning experience to add API calls and promises to what I have thus learned about HTML, CSS and JavaScript. After completing this project, I understand how to communicate between frontend and backend better even if I am only writing the code for the frontend. I complete the minimaml viable product (MVP) then posted my netlify link on LinkedIn. There my instructor, Teresa Vasquez, another senior developer and myself discussed possible stretch goals for this project. We came up with 3 stretches. First, adding a spinner to render on the DOM until the promise came back from the database and rendered the lyrics to the DOM. Next, the format of the lyrics should be more readable. Lastly, an error message would render if either a user misspelled their artist/band input or their song input OR if the database didn't have their song at all. The error message was the most challenging of the three for me, but I learned that I could use the .catch I wrote since it's where undefined results from the API call come back and write an arrow function with a code block to have an error message render to the DOM. My coding knowledge, understanding and skills are improving.
 
-### Use Template
-#### 1. To get started, click the GREEN "Use this Template" button at the top of the repo
-![Use this Template](./documentation/usetemplate.png)
+### Finding Lyrics
 
-#### 2. Make sure YOUR github account is selected in the dropdown and name your project
-![Create Project](./documentation/createproject.png)
+<img src="components/gifs/finding-lyrics.gif" alt="walk through of searching for lyrics" style="height:800px;">
 
-3. Clone your new repo to your local machine
-4. Go to the **NEXT** section
+### Lyrics Not Found
 
-## Starting the Project
-1. Open the `package.json` file and change the `name` property to the name of your application, and `author` to  your name.
-1. Rename the `.sample.env` file to `.env` file. The final file name should be `.env`
-1. From your command line, be in the root directory and run `npm install` OR `npm i` for short.
-1. To start your application, run `npm start`
-
-### If you see this, you are set to go!
-![LIT](./documentation/lit-screen.png)
-
-**NOTES:** 
-- Changes you make to the project will make the browser reload on save...no more hard refresh unless something goes wrong.
-- You will no longer be using the `hs -o` command. To start your server, you will run `npm start`
-
-## Other Important Tidbits
-### Console messages
-From this time forward, you will be expected to have a clean console in order for your assignments to be approved. This means that the use of `console.log` is acceptable **_(debugger is WAY better though)_** while developing, but will throw an error in your console like the image below, but all `logs` will have to be removed. You may use `console.error` and `console.warn` in your code however for messages. These need to all be removed before pushing to production unless they contain vital info for the user/developer.
-
-![not acceptable](./documentation/notacceptable.png)
-
-### Including Images with Webpack
-If you have a folder of local images that you want to load into your code things get a little strange with webpack.  Remember the only way webpack knows about assets is if they are imported into your javascript files.  Even our CSS is not added until those files are imported into our javascript files.  Below is some sample code for how to load a local image file into your project
-
-```js
-import cat from './assets/cat.jpg';
-
-let domString = `<img src=${cat} alt="picture of a cat"/>`;
-
-document.getElementById('cat').innerHTMl = domString;
-```
-
-### Importing CSS/SCSS
-**NOTE:** We will be using SCSS files. They are used the same way your CSS files work, with some added benefits that we will discuss later.
-
-Since Webpack is making the connection to the JS and CSS for us and we are no longer manually adding links or script tags to our HTML, we have to get our styles to the application some way...
-
-Here is how we add our styles using webpack:
-
-```js
-import '../styles/main.scss';
-
-const init = () => {
-  document.querySelector('#app').innerHTML = '<h1>HELLO! You are up and running!</h1>';
-  console.log('YOU ARE UP AND RUNNING!');
-};
-
-init();
-```
-
-### Using Axios
-> For every file you will need to make an XHR request in, you will need to require Axios
-```js
-import axios from 'axios';
-
-const examplePromise = () => {
-  axios.get('http://localhost:3001/example')
-    .then((data) => {
-      console.warn(data);
-    })
-    .catch((error) => {
-      console.error(error);
-    });
-});
-```
-
-### Deploying on Netlify
-
-- Build Command: `npm run build`
-- Publish directory: `dist`
-- Add Environmental Variables (NOT REQUIRED for Apps that do not use API Keys, etc)
-    - Any Enviromental variables you are using in your `.env` file should be added to Netlify. 
-        - Go to Site settings > Build & deploy > Environment > Environment variables and the keys and values there.
-
-- Update Firebase URL Settings
-    - In Firebase under Authentication select sign in methods, scroll to Authorized domains. Add your Netlify URL.
-        
-## More Info and Resources on Webpack
-- Visit the [Webpack documentation](https://webpack.js.org/concepts/) if you want to explore more.
-- [Info on our Webpack Config](https://github.com/nss-nightclass-projects/Night-Class-Resources/blob/master/book-2-patterns-and-tools/chapters/webpack-configure.md)
+<img src="components/gifs/lyrics-not-found.gif" alt="walk through of searching for lyrics" style="height:800px;">
