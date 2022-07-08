@@ -14,11 +14,3 @@ For anyone wanting to clone my code from GitHub to their local machine, feel fre
 
 ### What I Learned
 This was my first project ever to have an external database that I needed to create API calls for to retrieve data for users. It was a learning experience to add API calls and promises to what I have thus learned about HTML, CSS and JavaScript. After completing this project, I understand how to communicate between frontend and backend better even if I am only writing the code for the frontend. I complete the minimaml viable product (MVP) then posted my netlify link on LinkedIn. There my instructor, Teresa Vasquez, another senior developer and myself discussed possible stretch goals for this project. We came up with 3 stretches. First, adding a spinner to render on the DOM until the promise came back from the database and rendered the lyrics to the DOM. Next, the format of the lyrics should be more readable. Lastly, an error message would render if either a user misspelled their artist/band input or their song input OR if the database didn't have their song at all. The error message was the most challenging of the three for me, but I learned that I could use the .catch I wrote since it's where undefined results from the API call come back and write an arrow function with a code block to have an error message render to the DOM. My coding knowledge, understanding and skills are improving.
-
-### Finding Lyrics
-
-<img src="components/gifs/finding-lyrics.gif" alt="walk through of searching for lyrics" style="height:800px;">
-
-### Lyrics Not Found
-
-<img src="components/gifs/lyrics-not-found.gif" alt="walk through of searching for lyrics" style="height:800px;">
